@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mental Health Score Checker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .shadowish {
+      box-shadow: 0 10px 20px rgba(34,197,94,0.2), 0 6px 6px rgba(34,197,94,0.1);
+    }
+
+    .green-card {
+      background-color: #e6f4ea; /* light green */
+    }
+
+    select {
+      transition: all 0.2s;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+    }
+
+    .progress-container {
+      height: 24px;
+      background-color: #d1fae5;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      transition: width 0.5s ease;
+    }
+    .fade-out {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4caf50; /* Green color for the spinner */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .hidden {
+    display: none;
+  }
+  </style>
+</head>
+
+<body class="bg-green-50 p-6">
+
+  <div class="max-w-5xl mx-auto bg-white rounded-2xl shadowish p-8">
+    <h1 class="text-3xl font-bold text-green-700 mb-6 text-center">🧠 Mental Health Score Checker</h1>
+
+    <form id="quizForm" class="space-y-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Repeatable Greenish Question Cards -->
+        <div class="shadowish p-4 rounded-xl green-card">
+          <label class="font-semibold text-green-800 block mb-2">1. How often do you feel anxious or worried?</label>
+          <select name="q1" class="w-full border rounded px-4 py-2">
+            <option value="0">Never</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Always</option>
+          </select>
+        </div>
+
+        <div class="shadowish p-4 rounded-xl green-card">
+          <label class="font-semibold text-green-800 block mb-2">2. How well do you sleep at night?</label>
+          <select name="q2" class="w-full border rounded px-4 py-2">
+            <option value="0">Very well</option>
+            <option value="1">Okay</option>
+            <option value="2">Poor</option>
+            <option value="3">Very poor</option>
+          </select>
+        </div>
+
+        <div class="shadowish p-4 rounded-xl green-card">
+          <label class="font-semibold text-green-800 block mb-2">3. Do you feel tired or low on energy regularly?</label>
+          <select name="q3" class="w-full border rounded px-4 py-2">
+            <option value="0">No</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Always</option>
+          </select>
+        </div>
+
+        <div class="shadowish p-4 rounded-xl green-card">
+          <label class="font-semibold text-green-800 block mb-2">4. How connected do you feel with others?</label>
+          <select name="q4" class="w-full border rounded px-4 py-2">
+            <option value="0">Very connected</option>
+            <option value="1">Somewhat</option>
+            <option value="2">Not much</option>
+            <option value="3">Isolated</option>
+          </select>
+        </div>
+
+        <div class="shadowish p-4 rounded-xl green-card">
+          <label class="font-semibold text-green-800 block mb-2">5. How often do you feel hopeless or down?</label>
+          <select name="q5" class="w-full border rounded px-4 py-2">
+            <option value="0">Rarely</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">All the time</option>
+          </select>
+        </div>
+
+        <div class="shadowish p-4 rounded-xl green-card">
+          <label class="font-semibold text-green-800 block mb-2">6. Are you able to concentrate well?</label>
+          <select name="q6" class="w-full border rounded px-4 py-2">
+            <option value="0">Always</option>
+            <option value="1">Most of the time</option>
+            <option value="2">Sometimes</option>
+            <option value="3">Rarely</option>
+          </select>
+        </div>
+
+        <div class="shadowish p-4 rounded-xl green-card">
+          <label class="font-semibold text-green-800 block mb-2">7. How often do you enjoy daily activities?</label>
+          <select name="q7" class="w-full border rounded px-4 py-2">
+            <option value="0">Always</option>
+            <option value="1">Often</option>
+            <option value="2">Rarely</option>
+            <option value="3">Never</option>
+          </select>
+        </div>
+
+        <div class="shadowish p-4 rounded-xl green-card">
+          <label class="font-semibold text-green-800 block mb-2">8. Do you feel overwhelmed by tasks?</label>
+          <select name="q8" class="w-full border rounded px-4 py-2">
+            <option value="0">Never</option>
+            <option value="1">Sometimes</option>
+            <option value="2">Often</option>
+            <option value="3">Always</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mt-6">
+        <button type="button" onclick="calculateScore()" class="bg-green-600 text-white px-8 py-2 rounded-full shadow hover:bg-green-700">
+          ✅ Check My Score
+        </button>
+      </div>
+    </form>
+
+    <!-- Score Bar + Result -->
+    <div id="resultContainer" class="mt-10 hidden">
+      <div class="text-xl font-semibold mb-4 text-green-800">Your Score</div>
+      <div class="progress-container w-full mb-4">
+        <div id="progressBar" class="progress-bar bg-green-500" style="width: 0%"></div>
+      </div>
+      <div id="resultText" class="text-lg text-gray-700"></div>
+    </div>
+
+    <a href="mentalhealth.html" class="block mt-10 text-green-600 underline text-center">← Back to Home</a>
+  </div>
+
+  <script>
+    function calculateScore() {
+      const form = document.getElementById("quizForm");
+      const selects = Array.from(form.querySelectorAll("select"));
+      const values = selects.map(el => parseInt(el.value));
+      const total = values.reduce((sum, val) => sum + val, 0);
+      const maxScore = values.length * 3;
+
+      const percentage = (total / maxScore) * 100;
+      const resultBar = document.getElementById("progressBar");
+      const resultText = document.getElementById("resultText");
+      const container = document.getElementById("resultContainer");
+
+      resultBar.style.width = `${percentage}%`;
+      container.classList.remove("hidden");
+
+      let message = "";
+      if (total <= 6) {
+        message = "😊 You're doing well mentally. Keep maintaining your mental wellness!";
+      } else if (total <= 12) {
+        message = "😐 You're experiencing some stress. Try relaxation or self-care.";
+      } else if (total <= 18) {
+        message = "😟 There might be some mental fatigue. Consider speaking to a counselor or therapist.";
+      } else {
+        message = "🚨 High stress detected. It's important to seek professional mental health support.";
+      }
+
+      resultText.innerHTML = `Score: <strong>${total}</strong> / ${maxScore}<br>${message}`;
+    }
+
+    function goToHealthCheck() {
+    const targetPage = "mentalhealthcheck.html";
+    if (window.location.pathname.endsWith(targetPage)) {
+      // Already on the page → just reload
+      window.location.reload();
+    } else {
+      // Go to the page in the same tab
+      window.location.href = targetPage;
+    }
+  }
+
+  </script>
+</body>
+</html>

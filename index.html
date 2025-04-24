@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zenova Minds - Login & Mental Health Check</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <h2 class="logo">Zenova<span>Minds</span></h2>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <button class="btnLogin-popup">Login</button>
+
+        <button id="showNGOs">Show NGO List</button>
+      </nav>
+     <!-- <div class="section_container header_container"> -->
+        <div class="header__content">
+          <h1>Find peace, Find Health: Your Wellness Journey Starts Here</h1>
+          <p>
+            Prioritizing your mental well-being is the first step toward a
+            happier life, so embrace the journey to a calmer mind and a
+            healthier you. By nurturing your mind, you unlock the power to face
+            challenges with resilience and strength.
+          </p>
+          <button class="button">See Services</button>
+        </div>
+    <!--  </div> -->
+    </header>
+    <section class="section_container service_container">
+      <div class="service__header">
+        <div class="service_header_content">
+          <h2 class="section__header">Our Special Service</h2>
+          <p>
+            Beyond simply providing medical care, our commitment lies in
+            delivering unparalleled service tailored to your unique needs.
+          </p>
+        </div>
+        <button class="service__btn">Ask A Service</button>
+      </div>
+      <div class="service__grid">
+        <article class="service__card">
+          <span><i class="fa-solid fa-microscope" aria-hidden="true"></i></span>
+          <h4>Laboratory Test</h4>
+          <p>
+            Accurate Diagnostics, Swift Results: Experience top-notch Laboratory
+            Testing at our facility.
+          </p>
+          <a href="#">Learn More</a>
+        </article>
+        <article class="service__card">
+          <span
+            ><i class="fa-solid fa-user-doctor" aria-hidden="true"></i
+          ></span>
+          <h4>Health Check</h4>
+          <p>
+            Our thorough assessments and expert evaluations help you stay
+            proactive about your health.
+          </p>
+          <a href="#" onclick="goToHealthCheck()">Learn More</a>
+        </article>
+        <article class="service__card">
+          <span><i class="fa-solid fa-brain" aria-hidden="true"></i></span>
+          <h4>Meditation</h4>
+          <p>
+            A practice involving focusing the mind using mental and physical
+            techniques, aiming to cultivate mindfulness, calmness, and clarity.
+          </p>
+          <a href="#" onclick="delayedRedirect()">Learn More</a>
+        </article>
+      </div>
+    </section>
+
+    
+
+    <!-- NGO List Section (Moved Outside Nav) -->
+    <div class="ngo-container" id="ngoContainer">
+      <ul id="ngoList"></ul>
+    </div>
+
+    <!-- Login & Registration Forms -->
+  
+    <div class="wrapper">
+      <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" required />
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" required />
+            <label>Password</label>
+          </div>
+          <div class="remember-forget">
+            <label><input type="checkbox" /> Remember me</label>
+            <a href="#">Forget password?</a>
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <div class="login-register">
+            <p>
+              Don't have an account?
+              <a href="#" class="register-link">Register</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-box register">
+        <h2>Registration</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input type="text" required />
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" required />
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" required />
+            <label>Password</label>
+          </div>
+          <div class="remember-forget">
+            <label
+              ><input type="checkbox" /> I agree to the terms &
+              conditions</label
+            >
+          </div>
+          <button type="submit" class="btn">Register</button>
+          <div class="login-register">
+            <p>
+              Already have an account? <a href="#" class="login-link">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="spinnerContainer" class="hidden">
+      <div class="spinner"></div>
+    </div>
+
+    <div id="preloader" style="display: none">
+      <div class="spinner"></div>
+    </div>
+
+    <script>
+      function delayedRedirect() {
+        // Show the preloader
+        document.getElementById("preloader").style.display = "flex";
+
+        // Wait 2 seconds then redirect
+        setTimeout(() => {
+          window.location.href = "meditation.html";
+        }, 2000); // Adjust delay here
+      }
+    </script>
+
+<script>
+   function goToHealthCheck() {
+    const targetPage = "healthcheck.html";
+    const pageContent = document.getElementById("pageContent");
+    const spinnerContainer = document.getElementById("spinnerContainer");
+
+    // Show spinner and add fade-out effect
+    if (pageContent) {
+      pageContent.classList.add("fade-out");
+    }
+
+    spinnerContainer.classList.remove("hidden");
+
+    // Wait for 2 seconds before reload or redirect
+    setTimeout(() => {
+      if (window.location.pathname.endsWith(targetPage)) {
+        // Reload the same page
+        window.location.reload();
+      } else {
+        // Go to the target page in the same tab
+        window.location.href = targetPage;
+      }
+    }, 2000); // 2-second delay
+  }
+</script>
+
+    <script>
+      function redirectToCheck() {
+        window.location.href = "healthcheck.html";
+      }
+    </script>
+
+    <footer class="footer">
+      <div class="foot-panel1">
+        <p>Back to Top</p>
+      </div>
+      <div class="section_container footer_container">
+        <div class="footer__col">
+          <h3>Health<span>Care</span></h3>
+          <p>
+            We are honored to be a part of your healthcare journey and committed
+            to delivering compassionate, and top-notch care every step of the
+            way.
+          </p>
+          <p>
+            Trust us with your health, and let us work together to achieve the
+            best possible outcomes for you and your loved ones.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>About Us</h4>
+          <p>Home</p>
+          <p>About Us</p>
+          <p>Work With Us</p>
+          <p>Our Blog</p>
+          <p>Terms & Conditions</p>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <p>Search Terms</p>
+          <p>Advanced Search</p>
+          <p>Privacy Policy</p>
+          <p>Suppliers</p>
+          <p>Our Stores</p>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> 713305, Asansol Engineering
+            College, Asansol
+          </p>
+          <p><i class="fa-solid fa-envelope"></i> support@care.com</p>
+          <p><i class="fa-solid fa-phone"></i> 7209325226</p>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <div class="footer_bar_content">
+          <p>Copyright © 2023 Web Design Mastery. All rights reserved.</p>
+          <div class="footer__socials">
+            <span><i class="fa-brands fa-instagram"></i></span>
+            <span><i class="fa-brands fa-facebook"></i></span>
+            <span><i class="fa-solid fa-heart-circle-plus"></i></span>
+            <span><i class="fa-brands fa-twitter"></i></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meditation Blog</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+  
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f3fff3;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+.header {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(to right, #c8facc, #e8ffe8);
+  box-shadow: 0 10px 25px rgba(0, 128, 0, 0.2);
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem; /* Larger font size for impact */
+  color: #2e7d32;
+  margin-bottom: 0.5rem; /* Reduced margin for closer look */
+}
+
+.header p {
+  font-size: 1.5rem; /* Larger font size for description */
+  color: #4a4a4a;
+  margin-top: 1rem; /* Smaller top margin for a compact look */
+  line-height: 1.5; /* Tighter line spacing */
+}
+
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem 1rem; /* Reduced padding for a more compact layout */
+}
+
+.intro img {
+  width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(152, 251, 152, 0.3);
+  transition: transform 0.3s;
+}
+.intro img:hover {
+  transform: scale(1.02);
+}
+
+.intro-text {
+  max-width: 600px;
+}
+
+.intro-text h2 {
+  font-size: 3rem; /* Larger heading size */
+  color: #2e7d32;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.intro-text p {
+  font-size: 1.25rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+.benefits {
+  padding: 4rem 2rem;
+  background-color: #edfff0;
+  text-align: center;
+}
+
+.benefits h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #2e7d32;
+  font-family: 'Playfair Display', serif;
+}
+
+.benefit-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+.card {
+  background: white;
+  padding: 3rem;
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(0, 128, 0, 0.2);
+  width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
+}
+
+.card h3 {
+  font-size: 2rem;
+  color: #2e7d32;
+  margin-bottom: 1.2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.card p {
+  font-size: 1.25rem;
+  line-height: 1.9;
+  color: #444;
+}
+
+.gallery {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 2.3rem;
+  color: #2e7d32;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.images img {
+  width: 300px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(144, 238, 144, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.images img:hover {
+  transform: scale(1.05);
+}
+
+.footer {
+  text-align: center;
+  background-color: #e4ffe4;
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: #444;
+  margin-top: 3rem;
+}
+
+
+</style>
+<body>
+  <header class="header">
+    <h1>Meditation for Mindfulness & Clarity</h1>
+    <p>"Meditation is not about escaping from life, but rather embracing it. Through stillness and mindfulness, we unlock a deeper sense of clarity and calm, allowing ourselves to connect with the present moment and find peace within. In the quiet of our minds, we discover the wisdom that has always been there, waiting to guide us."
+
+    </p>
+  </header>
+
+  <section class="intro">
+    <img src="meditaion.jpg" alt="Meditation Image">
+    <div class="intro-text">
+      <h2>What is Meditation?</h2>
+      <p>
+        Meditation is a mental and physical practice that helps you focus the mind,
+        relieve stress, increase awareness, and cultivate a peaceful state of being.
+        It involves techniques like deep breathing, visualization, and mindful awareness.
+      </p>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <h2>Benefits of Meditation</h2>
+    <div class="benefit-cards">
+      <div class="card">
+        <h3>Reduces Stress</h3>
+        <p>Meditation lowers cortisol levels, promoting relaxation and emotional balance.</p>
+      </div>
+      <div class="card">
+        <h3>Improves Focus</h3>
+        <p>Practicing mindfulness enhances concentration and cognitive clarity.</p>
+      </div>
+      <div class="card">
+        <h3>Better Sleep</h3>
+        <p>Helps quiet the mind and body, improving overall sleep quality and duration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Meditation in Nature</h2>
+    <div class="images">
+      <img src="forestmed.jpg" alt="Forest Meditation">
+      <img src="mountaionmed.jpg" alt="Mountain Meditation">
+      <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=800&q=80" alt="Beach Meditation">
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Mindful Living. All rights reserved.</p>
+  </footer>
+</body>
+</html>
